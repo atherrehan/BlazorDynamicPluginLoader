@@ -1,7 +1,48 @@
 ﻿@page "/"
+@using BlazorDynamicPluginLoader.App.Services
+@inject IConfiguration Configuration
+@inject IPluginService PluginService
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h3>Loaded Plugin Data:</h3>
+@foreach (var data in pluginDataList)
+{
+	<p><strong>DLL Loaded:</strong>  @data.DllName</p>
+	<p><strong>From Controller:</strong> @data.PluginData</p>
+}
 
-Welcome to your new app.
+<h3>Loaded Plugin Components:</h3>
+@foreach (var type in pluginComponents)
+{
+	<DynamicComponent Type="type" Parameters="null" />
+}
+
+
+@code {
+	private List<(string DllName, string PluginData)> pluginDataList = new();
+	private List<Type> pluginComponents = new();
+
+	protected override void OnInitialized()
+	{
+		var pluginFolder = Configuration.GetSection("PluginOptions")["Path"];
+		pluginFolder = Path.GetFullPath(pluginFolder); // Optional, ensures full path
+		foreach (var (assembly, dllName) in PluginService.LoadPlugins(pluginFolder))
+		{
+			// Get controller data
+			var controller = PluginService.CreateControllerInstance(assembly, "HelloController");
+			var method = controller?.GetType().GetMethod("GetData");
+			if (method != null)
+			{
+				var result = method.Invoke(controller, null)?.ToString();
+				if (!string.IsNullOrEmpty(result))
+					pluginDataList.Add((dllName, result));  // Store DLL name and plugin data
+			}
+
+			// Get component types
+			var componentType = PluginService.GetComponentType(assembly, "HelloComponent");
+			if (componentType != null)
+				pluginComponents.Add(componentType);
+		}
+	}
+}
