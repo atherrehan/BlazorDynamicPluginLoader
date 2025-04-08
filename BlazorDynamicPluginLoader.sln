@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35919.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDynamicPluginLoader.App", "BlazorDynamicPluginLoader.App\BlazorDynamicPluginLoader.App.csproj", "{27BFE9C4-5129-4C15-BF9B-AB49711095EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDynamicPluginLoader.LanguageComponentRazor", "BlazorDynamicPluginLoader.LanguageComponentRazor\BlazorDynamicPluginLoader.LanguageComponentRazor.csproj", "{B612E6BF-59F7-4D11-BD2A-4783E418E24A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27BFE9C4-5129-4C15-BF9B-AB49711095EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27BFE9C4-5129-4C15-BF9B-AB49711095EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27BFE9C4-5129-4C15-BF9B-AB49711095EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27BFE9C4-5129-4C15-BF9B-AB49711095EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B612E6BF-59F7-4D11-BD2A-4783E418E24A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B612E6BF-59F7-4D11-BD2A-4783E418E24A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B612E6BF-59F7-4D11-BD2A-4783E418E24A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B612E6BF-59F7-4D11-BD2A-4783E418E24A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0217596C-1D1F-49A2-B176-5FB1E25F7E7C}
+	EndGlobalSection
+EndGlobal
